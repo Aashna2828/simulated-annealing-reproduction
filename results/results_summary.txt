@@ -1,0 +1,19 @@
+SIMULATED ANNEALING REPRODUCTION RESULTS
+======================================================================
+
+TSP Results:
+Size       Greedy     SA         Improve    Alpha     
+--------------------------------------------------
+50         7.0        5.8        17.4      % 0.820     
+100        10.2       8.5        16.6      % 0.851     
+200        13.6       12.1       11.2      % 0.852     
+
+Circuit Partitioning Results:
+Size       Random     Rapid Cool   SA         vs Random    vs Rapid    
+----------------------------------------------------------------------
+500        736        466          350        52.4        % 24.8        %
+1000       1504       936          688        54.3        % 26.5        %
+2000       3023       1871         1425       52.9        % 23.9        %
+
+Paper benchmark: SA vs rapid cooling = 53%
+TSP paper benchmark: alpha ~0.95
