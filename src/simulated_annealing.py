@@ -69,7 +69,7 @@ class SimulatedAnnealing:
         if verbose:
             print(f"Starting SA: Initial cost = {current_cost:.2f}, T0 = {temperature:.2f}")
         
-        # Main annealing loop
+        
         while total_iterations < self.max_iterations:
             accepted_moves = 0
             
@@ -82,31 +82,31 @@ class SimulatedAnnealing:
                 # Calculate cost change
                 delta_cost = neighbor_cost - current_cost
                 
-                # Metropolis acceptance criterion (matches pseudocode exactly)
+                
                 if delta_cost <= 0:
-                    # Better solution — accept immediately, no random number needed
+                    
                     current_solution = neighbor_solution
                     current_cost = neighbor_cost
                     accepted_moves += 1
-                    # Track best solution
+                    
                     if current_cost < best_cost:
                         best_solution = neighbor_solution.copy() if hasattr(neighbor_solution, 'copy') else neighbor_solution
                         best_cost = current_cost
                 else:
-                    # Worse solution — accept probabilistically
+                    
                     alpha = np.random.random()
                     if alpha <= math.exp(-delta_cost / temperature):
                         current_solution = neighbor_solution
                         current_cost = neighbor_cost
                         accepted_moves += 1
-                        # Track best solution even for probabilistically accepted moves
+                        
                         if current_cost < best_cost:
                             best_solution = neighbor_solution.copy() if hasattr(neighbor_solution, 'copy') else neighbor_solution
                             best_cost = current_cost
                 
                 total_iterations += 1
             
-            # Calculate acceptance rate at this temperature
+            
             acceptance_rate = accepted_moves / self.iterations_per_temp
             
             # Track history
